@@ -1,0 +1,10 @@
+*.log
+.DS_Store
+.env*
+.next/
+.vercel
+.vercel/
+logs/
+node_modules/
+out/
+scripts-falcheck.sh

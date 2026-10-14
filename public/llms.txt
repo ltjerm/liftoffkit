@@ -1,0 +1,24 @@
+# LiftoffKit
+
+> Paste an app URL → get a full launch kit by email.
+
+LiftoffKit (https://liftoffkit.app) turns a public product URL into launch-ready assets for AI builders, designers, and vibe coders.
+
+## Product
+- Input: a public app / SaaS URL
+- Output ZIP: landing & store copy, logo + favicon set, OG/social images, App Store / Product Hunt screenshot mockups, privacy + terms drafts, 7-day X (Twitter) launch plan (Markdown + CSV)
+- Liftoff+ adds a hosted landing page built from the kit
+- No auto-posting to X or Product Hunt — plan only
+- Generated privacy/terms are drafts, not legal advice
+
+## Pricing
+- Liftoff: $29 one-time (full asset ZIP by email)
+- Liftoff+: $79 one-time (everything in Liftoff + hosted landing)
+
+## Key pages
+- Home / marketing: https://liftoffkit.app/
+- Sitemap: https://liftoffkit.app/sitemap.xml
+- Contact: info@liftoffkit.app
+
+## Status
+Soft launch pending. Checkout and paid generation not yet live on the public site.
