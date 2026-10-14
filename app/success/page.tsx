@@ -18,7 +18,7 @@ export default async function Success({ searchParams }: { searchParams: Promise<
   }
   return (
     <div className="site">
-      <main className="wrap hero">
+      <main className="wrap success">
         {paid ? (
           <>
             <h1>You&apos;re cleared for <span className="accent">liftoff.</span></h1>
