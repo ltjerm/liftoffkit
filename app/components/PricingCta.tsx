@@ -27,12 +27,11 @@ export default function PricingCta({ tier, label, featured }: Props) {
   return (
     <div>
       <input type="url" className="cta-url" placeholder="https://yourapp.com" value={url} aria-label="Your app URL"
-        onChange={(e) => { setUrl(e.target.value); setMsg(null); }}
-        style={{ width: "100%", marginBottom: "0.6rem", padding: "0.7rem 0.9rem", borderRadius: 10, border: "1px solid rgba(127,127,127,.35)", background: "transparent", color: "inherit", font: "inherit" }} />
+        onChange={(e) => { setUrl(e.target.value); setMsg(null); }} />
       <button type="button" className={`btn ${featured ? "btn-primary" : "btn-ghost"} btn-block`} onClick={go} disabled={busy} data-tier={tier}>
-        {busy ? "Opening checkout…" : label}
+        {busy ? "Opening checkout…" : <>{label} <span className="btn-arrow" aria-hidden="true">→</span></>}
       </button>
-      {msg ? <p className="form-msg error" role="status" style={{ marginTop: "0.75rem" }}>{msg}</p> : null}
+      {msg ? <p className="form-msg error" role="status">{msg}</p> : null}
     </div>
   );
 }

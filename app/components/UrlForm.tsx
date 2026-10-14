@@ -25,7 +25,7 @@ export default function UrlForm({ pricingHref = "#pricing", buttonLabel = "Gener
       <form className="url-form" onSubmit={onSubmit} noValidate>
         <input type="url" name="url" inputMode="url" autoComplete="url" placeholder="https://yourapp.com" value={url}
           onChange={(e) => { setUrl(e.target.value); if (message) setMessage(null); }} aria-label="Your app URL" />
-        <button type="submit" className="btn btn-primary">{buttonLabel}</button>
+        <button type="submit" className="btn btn-primary">{buttonLabel} <span className="btn-arrow" aria-hidden="true">→</span></button>
       </form>
       <p className="form-hint">One-time payment via Stripe. <a href={pricingHref}>See pricing</a>.</p>
       {message ? <p className={`form-msg${error ? " error" : ""}`} role="status">{message}</p> : null}
