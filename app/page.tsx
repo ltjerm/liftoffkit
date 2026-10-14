@@ -5,7 +5,7 @@ import PricingCta from "./components/PricingCta";
 const steps = [
   ["Paste your URL", "We load your live site in a real browser and read your name, features, colors, fonts and the services you use."],
   ["We generate the kit", "Copy, logo, favicons, social images, store mockups, legal drafts and a 7-day X plan, built from what your app actually does."],
-  ["Get it by email", "Your kit arrives as a ZIP. Liftoff+ adds a hosted landing page built from the kit."],
+  ["Get it by email", "Your kit arrives as a ZIP. Liftoff+ adds a hosted landing page, set up by us within 3 business days of purchase."],
 ];
 
 const kit = [
@@ -22,7 +22,7 @@ const faqs = [
   ["How is the kit delivered?", "After checkout we generate your kit and email it to you as a ZIP."],
   ["Will it invent features or stats?", "Copy is written from what's on your site, and any number we can't find there is flagged for you to check. Always review AI-written copy before publishing."],
   ["Does it work for mobile apps?", "It works from a website, so point it at your app's site. Store-sized screenshots are built from your mobile site — swap in real in-app screens before submitting to the App Store or Google Play."],
-  ["What's the difference between Liftoff and Liftoff+?", "Liftoff ($29) is the downloadable kit. Liftoff+ ($79) adds a hosted landing page built from the kit."],
+  ["What's the difference between Liftoff and Liftoff+?", "Liftoff ($29) is the downloadable kit. Liftoff+ ($79) adds a hosted landing page built from your kit. Your kit arrives by email right away; we set up and send the hosted page within 3 business days."],
 ];
 
 export default function Home() {
@@ -45,7 +45,7 @@ export default function Home() {
           <h1>Paste your app URL. <span className="accent">Get your whole launch kit.</span></h1>
           <p className="hero-lead">Landing copy, logo & favicons, OG and social images, App Store and Product Hunt screenshots, privacy & terms, and a 7-day X launch plan — generated from your live site.</p>
           <UrlForm />
-          <p className="hero-meta"><strong>$29</strong> Liftoff · <strong>$79</strong> Liftoff+ with hosted landing page</p>
+          <p className="hero-meta"><strong>$29</strong> Liftoff · <strong>$79</strong> Liftoff+ with hosted landing page (set up within 3 business days)</p>
         </section>
 
         <section className="wrap" id="how">
@@ -100,7 +100,7 @@ export default function Home() {
               <p className="price-desc">The kit, plus a hosted landing page.</p>
               <ul className="price-list">
                 <li>Everything in Liftoff</li>
-                <li>Hosted landing page built from your kit</li>
+                <li>Hosted landing page, set up by us within 3 business days of purchase</li>
               </ul>
               <PricingCta tier="liftoff-plus" label="Get Liftoff+" featured />
             </div>

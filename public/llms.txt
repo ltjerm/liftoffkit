@@ -7,13 +7,13 @@ LiftoffKit (https://liftoffkit.app) turns a public product URL into launch-ready
 ## Product
 - Input: a public app / SaaS URL
 - Output ZIP: landing & store copy, logo + favicon set, OG/social images, App Store / Product Hunt screenshot mockups, privacy + terms drafts, 7-day X (Twitter) launch plan (Markdown + CSV)
-- Liftoff+ adds a hosted landing page built from the kit
+- Liftoff+ adds a hosted landing page built from the kit, set up by us within 3 business days of purchase
 - No auto-posting to X or Product Hunt — plan only
 - Generated privacy/terms are drafts, not legal advice
 
 ## Pricing
 - Liftoff: $29 one-time (full asset ZIP by email)
-- Liftoff+: $79 one-time (everything in Liftoff + hosted landing)
+- Liftoff+: $79 one-time (everything in Liftoff + hosted landing page, set up within 3 business days)
 
 ## Key pages
 - Home / marketing: https://liftoffkit.app/

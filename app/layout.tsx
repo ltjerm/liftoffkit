@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s · LiftoffKit",
   },
   description:
-    "Paste your app URL. Get landing copy, logo & favicon, OG images, store/Product Hunt shots, privacy & terms, and a 7-day X launch plan. $29 Liftoff or $79 Liftoff+ with hosted landing.",
+    "Paste your app URL. Get landing copy, logo & favicon, OG images, store/Product Hunt shots, privacy & terms, and a 7-day X launch plan. $29 Liftoff or $79 Liftoff+ with a hosted landing page set up within 3 business days.",
   keywords: [
     "app launch kit",
     "Product Hunt assets",
