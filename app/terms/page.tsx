@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — LiftoffKit",
+  title: "Terms of Service",
   description: "The terms for using LiftoffKit and buying a launch kit.",
   alternates: { canonical: "https://liftoffkit.app/terms" },
 };
