@@ -350,8 +350,12 @@ section {
   display: inline-block;
   white-space: nowrap;
   color: var(--signal);
-  font-size: 1.12em;
-  line-height: 0.9;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  font-size: 1em;
+  line-height: inherit;
+  letter-spacing: inherit;
   padding-right: 0.1em;
 }
 
