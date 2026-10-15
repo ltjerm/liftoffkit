@@ -330,7 +330,7 @@ section {
 
 .hero-title {
   margin: 0 0 1.5rem;
-  font-size: clamp(2.9rem, 7.4vw, 5.6rem);
+  font-size: clamp(2.7rem, 6.6vw, 5.2rem);
   font-weight: 750;
   font-stretch: 118%;
   letter-spacing: -0.045em;
@@ -344,6 +344,7 @@ section {
 .hero-title em {
   position: relative;
   display: inline-block;
+  white-space: nowrap;
   color: var(--signal);
   font-size: 1.12em;
   line-height: 0.9;
@@ -378,6 +379,11 @@ section {
   color: var(--ink-2);
   font-size: 1.12rem;
   line-height: 1.6;
+}
+
+.hero-lead strong {
+  color: var(--ink);
+  font-weight: 650;
 }
 
 .hero-facts {
