@@ -304,7 +304,7 @@ export default function Home() {
       <footer className="footer">
         <div className="wrap footer-inner">
           <span className="footer-brand"><Mark /><strong>LiftoffKit</strong> · © {new Date().getFullYear()}</span>
-          <span className="footer-links"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></span>
+          <span className="footer-links"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></span>
         </div>
         <div className="footer-word" aria-hidden="true">LiftoffKit</div>
       </footer>

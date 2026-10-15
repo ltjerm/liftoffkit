@@ -19,6 +19,8 @@ LiftoffKit (https://liftoffkit.app) turns a public product URL into launch-ready
 - Home / marketing: https://liftoffkit.app/
 - Sitemap: https://liftoffkit.app/sitemap.xml
 - Contact: info@liftoffkit.app
+- Privacy Policy: https://liftoffkit.app/privacy
+- Terms of Service: https://liftoffkit.app/terms
 
 ## Status
 Soft launch pending. Checkout and paid generation not yet live on the public site.
