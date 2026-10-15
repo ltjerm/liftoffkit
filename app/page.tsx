@@ -70,9 +70,9 @@ export default function Home() {
             <div className="hero-copy">
               <p className="kicker rise" style={d(0)}><span className="live-dot" />Launch kits for indie apps &amp; side projects</p>
               <h1 className="hero-title">
-                <span className="line rise" style={d(1)}>Launch</span>
-                <span className="line rise" style={d(2)}>this week,</span>
-                <span className="line rise" style={d(3)}><em>not next month.</em></span>
+                <span className="line rise" style={d(1)}>Your app is done.</span>
+                <span className="line rise" style={d(2)}>Your launch kit</span>
+                <span className="line rise" style={d(3)}><em>isn&apos;t. Yet.</em></span>
               </h1>
               <p className="hero-lead rise" style={d(3)}>
                 <strong>One URL in.</strong> Landing copy, logo and favicons, social images, App Store and Product Hunt shots,

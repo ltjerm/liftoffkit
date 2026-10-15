@@ -328,9 +328,13 @@ section {
   }
 }
 
+.hero-copy {
+  container-type: inline-size;
+}
+
 .hero-title {
   margin: 0 0 1.5rem;
-  font-size: clamp(2.7rem, 6.6vw, 5.2rem);
+  font-size: clamp(1.85rem, 10.8cqw, 4.2rem);
   font-weight: 750;
   font-stretch: 118%;
   letter-spacing: -0.045em;
