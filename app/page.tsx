@@ -38,7 +38,7 @@ function Mark() {
   return (
     <svg className="mark" viewBox="0 0 32 32" aria-hidden="true">
       <rect width="32" height="32" rx="9" fill="var(--ink)" />
-      <path d="M16 6.5c3.6 2.6 5 6.3 4.3 11.2l-2.1 2.1h-4.4l-2.1-2.1C11 12.8 12.4 9.1 16 6.5Z" fill="var(--signal)" />
+      <path d="M16 6.5c3.6 2.6 5 6.3 4.3 11.2l-2.1 2.1h-4.4l-2.1-2.1C11 12.8 12.4 9.1 16 6.5Z" fill="var(--gold)" />
       <circle cx="16" cy="13.2" r="1.7" fill="var(--paper)" />
       <path d="M14.2 21.6h3.6L16 26.2Z" fill="var(--paper)" opacity=".85" />
     </svg>
@@ -286,7 +286,7 @@ export default function Home() {
             <div className="cta-rocket" aria-hidden="true">
               <svg viewBox="0 0 64 128">
                 <path d="M32 4c11 8 15 20 13 36v30l-6 8H25l-6-8V40C17 24 21 12 32 4Z" fill="var(--paper)" />
-                <circle cx="32" cy="38" r="6" fill="var(--signal)" stroke="var(--ink)" strokeWidth="3" />
+                <circle cx="32" cy="38" r="6" fill="var(--gold)" stroke="var(--ink)" strokeWidth="3" />
                 <path d="M19 56 8 72v12l11-6ZM45 56l11 16v12l-11-6Z" fill="var(--ink)" />
                 <path className="flame" d="M25 80h14l-7 34Z" fill="#ffd27a" />
               </svg>
