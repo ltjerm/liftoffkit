@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { palette } from "./data/colors";
 
 export const runtime = "edge";
 export const alt = "LiftoffKit — Paste a URL, get your launch kit";
@@ -16,7 +17,7 @@ export default async function OGImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "72px 80px",
-          background: "#f3efe6",
+          background: palette.cream,
           fontFamily: "Archivo, sans-serif",
           position: "relative",
         }}
@@ -30,7 +31,7 @@ export default async function OGImage() {
             right: 0,
             bottom: 0,
             backgroundImage:
-              "linear-gradient(#d5ccb9 1px, transparent 1px), linear-gradient(90deg, #d5ccb9 1px, transparent 1px)",
+              `linear-gradient(${palette.gridLine} 1px, transparent 1px), linear-gradient(90deg, ${palette.gridLine} 1px, transparent 1px)`,
             backgroundSize: "56px 56px",
             opacity: 0.5,
           }}
@@ -47,17 +48,17 @@ export default async function OGImage() {
         >
           {/* Icon mark */}
           <svg viewBox="0 0 32 32" width="56" height="56">
-            <rect width="32" height="32" rx="9" fill="#14120f" />
+            <rect width="32" height="32" rx="9" fill={palette.ink} />
             <path
               d="M16 6.5c3.6 2.6 5 6.3 4.3 11.2l-2.1 2.1h-4.4l-2.1-2.1C11 12.8 12.4 9.1 16 6.5Z"
-              fill="#ff4d1a"
+              fill={palette.accent}
             />
-            <circle cx="16" cy="13.2" r="1.7" fill="#f3efe6" />
-            <path d="M14.2 21.6h3.6L16 26.2Z" fill="#f3efe6" opacity="0.85" />
+            <circle cx="16" cy="13.2" r="1.7" fill={palette.cream} />
+            <path d="M14.2 21.6h3.6L16 26.2Z" fill={palette.cream} opacity="0.85" />
           </svg>
           <span
             style={{
-              color: "#14120f",
+              color: palette.ink,
               fontSize: "42px",
               fontWeight: 700,
               letterSpacing: "-0.03em",
@@ -75,7 +76,7 @@ export default async function OGImage() {
             fontWeight: 750,
             letterSpacing: "-0.045em",
             lineHeight: 1.0,
-            color: "#14120f",
+            color: palette.ink,
             maxWidth: "900px",
           }}
         >
@@ -83,7 +84,7 @@ export default async function OGImage() {
           <br />
           <span
             style={{
-              color: "#ff4d1a",
+              color: palette.accent,
               fontStyle: "italic",
               fontFamily: "Georgia, serif",
             }}
@@ -97,7 +98,7 @@ export default async function OGImage() {
           style={{
             marginTop: "32px",
             fontSize: "28px",
-            color: "#6b6457",
+            color: palette.muted,
             maxWidth: "700px",
             lineHeight: 1.4,
           }}
@@ -116,9 +117,9 @@ export default async function OGImage() {
             alignItems: "center",
             gap: "8px",
             padding: "12px 20px",
-            background: "#14120f",
+            background: palette.ink,
             borderRadius: "999px",
-            color: "#f3efe6",
+            color: palette.cream,
             fontSize: "22px",
             fontFamily: "monospace",
           }}
