@@ -15,7 +15,7 @@ export const CopySchema = z.object({
 export type Copy = z.infer<typeof CopySchema> & { source: "llm" | "template"; warnings: string[] };
 
 const BANNED = /\b(seamless(ly)?|empower(s|ing)?|revolutioni[sz]e|unleash|game[- ]chang(er|ing)|cutting[- ]edge|supercharge|elevate|leverage|synergy)\b/gi;
-const LIMITS = { "meta.title": 60, "meta.description": 160, "productHunt.tagline": 60, "productHunt.description": 260, "appStore.subtitle": 30, "appStore.keywords": 100, "appStore.promoText": 170 } as const;
+const LIMITS = { subhead: 160, "meta.title": 60, "meta.description": 160, "productHunt.tagline": 60, "productHunt.description": 260, "appStore.subtitle": 30, "appStore.keywords": 100, "appStore.promoText": 170 } as const;
 
 /**
  * Trim text to fit within a character limit, ending at a sentence or clause boundary.
@@ -107,7 +107,7 @@ export async function generateCopy(b: Brand, llm: LLMProvider): Promise<Copy> {
     const fixed = await llm.json({
       system: "You shorten marketing copy to hard character limits. Keep meaning and facts; complete sentences or phrases only; no ellipses. For keywords, return a comma-separated list without spaces.",
       prompt: `Rewrite each field to be at most maxChars characters (count carefully, aim 5-10% under). Return JSON {"<field path>": "<new text>"} for exactly these fields:\n${JSON.stringify(fields)}`,
-      schema: Rewrite, maxTokens: 2000,
+      schema: Rewrite,
     });
     if (fixed) for (const [p, v] of Object.entries(fixed)) {
       const ks = p.split("."); const parent = ks.slice(0, -1).reduce<any>((o, k) => o?.[k], out);

@@ -97,7 +97,7 @@ console.log("Testing critic() with oversized fields\n");
 
 const testCopy = {
   headlines: ["Test headline"],
-  subhead: "Test subhead",
+  subhead: "This is a subhead that is deliberately written to be way too long, exceeding the one hundred sixty character limit that we enforce for subheads to ensure they display properly on landing pages and marketing materials.",
   cta: { primary: "Get started", secondary: "Learn more" },
   features: [{ title: "Feature", body: "Description" }],
   faq: [{ q: "Question?", a: "Answer." }],
@@ -121,6 +121,7 @@ const { copy, warnings } = critic(testCopy);
 
 console.log("Warnings generated:", warnings.length ? warnings.join("; ") : "(none)");
 console.log("\nTrimmed fields:");
+console.log(`  subhead (${copy.subhead.length}/160): "${copy.subhead}"`);
 console.log(`  meta.title (${copy.meta.title.length}/60): "${copy.meta.title}"`);
 console.log(`  meta.description (${copy.meta.description.length}/160): "${copy.meta.description}"`);
 console.log(`  productHunt.tagline (${copy.productHunt.tagline.length}/60): "${copy.productHunt.tagline}"`);
@@ -129,20 +130,33 @@ console.log(`  appStore.subtitle (${copy.appStore.subtitle.length}/30): "${copy.
 console.log(`  appStore.promoText (${copy.appStore.promoText.length}/170): "${copy.appStore.promoText}"`);
 
 // Verify no ellipses in output
-const hasAnyEllipsis = [
-  copy.meta.title,
-  copy.meta.description,
-  copy.productHunt.tagline,
-  copy.productHunt.description,
-  copy.appStore.subtitle,
-  copy.appStore.promoText,
-].some(s => s.includes("…") || s.includes("..."));
+const fieldsToCheck = [
+  { name: "subhead", value: copy.subhead, limit: 160 },
+  { name: "meta.title", value: copy.meta.title, limit: 60 },
+  { name: "meta.description", value: copy.meta.description, limit: 160 },
+  { name: "productHunt.tagline", value: copy.productHunt.tagline, limit: 60 },
+  { name: "productHunt.description", value: copy.productHunt.description, limit: 260 },
+  { name: "appStore.subtitle", value: copy.appStore.subtitle, limit: 30 },
+  { name: "appStore.promoText", value: copy.appStore.promoText, limit: 170 },
+];
+
+const hasAnyEllipsis = fieldsToCheck.some(f => f.value.includes("…") || f.value.includes("..."));
+const allWithinLimits = fieldsToCheck.every(f => f.value.length <= f.limit);
 
 if (hasAnyEllipsis) {
   console.log("\n✗ FAIL: Some fields contain ellipsis");
   failed++;
 } else {
   console.log("\n✓ PASS: No ellipsis in any trimmed field");
+  passed++;
+}
+
+if (!allWithinLimits) {
+  const over = fieldsToCheck.filter(f => f.value.length > f.limit);
+  console.log(`\n✗ FAIL: Fields exceed limits: ${over.map(f => `${f.name} (${f.value.length}/${f.limit})`).join(", ")}`);
+  failed++;
+} else {
+  console.log("✓ PASS: All fields within character limits");
   passed++;
 }
 
