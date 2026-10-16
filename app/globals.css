@@ -2204,6 +2204,22 @@ section {
   max-width: 38rem;
 }
 
+.success .hero-meta {
+  margin: 2rem 0 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.88rem;
+}
+
+.success .hero-meta a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.success .hero-meta a:hover {
+  color: var(--signal-deep);
+}
+
 /* ───────── Reduced motion ───────── */
 @media (prefers-reduced-motion: reduce) {
   *,

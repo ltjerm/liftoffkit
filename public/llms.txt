@@ -15,12 +15,18 @@ LiftoffKit (https://liftoffkit.app) turns a public product URL into launch-ready
 - Liftoff: $29 one-time (full asset ZIP by email)
 - Liftoff+: $79 one-time (everything in Liftoff + hosted landing page, set up within 3 business days)
 
+## Page sections
+- How it works: https://liftoffkit.app/#how
+- The kit: https://liftoffkit.app/#kit
+- Pricing: https://liftoffkit.app/#pricing
+- FAQ: https://liftoffkit.app/#faq
+
 ## Key pages
 - Home / marketing: https://liftoffkit.app/
 - Sitemap: https://liftoffkit.app/sitemap.xml
-- Contact: info@liftoffkit.app
+- Contact: support@liftoffkit.app
 - Privacy Policy: https://liftoffkit.app/privacy
 - Terms of Service: https://liftoffkit.app/terms
 
 ## Status
-Soft launch pending. Checkout and paid generation not yet live on the public site.
+Live. One-time purchase: $29 (Liftoff) or $79 (Liftoff+). Checkout via Stripe; kit delivered by email.
