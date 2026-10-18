@@ -27,6 +27,15 @@ export async function POST(req: Request) {
     customer_creation: "always",
     success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/#pricing`,
+    // Stripe Checkout Studio settings
+    ui_mode: "hosted_page",
+    billing_address_collection: "auto",
+    phone_number_collection: { enabled: false },
+    automatic_tax: { enabled: false },
+    allow_promotion_codes: false,
+    submit_type: "auto",
+    integration_identifier: "hosted_web_0002",
+    origin_context: "web",
   });
   } catch (e) {
     console.error("checkout error", (e as Error).message);
