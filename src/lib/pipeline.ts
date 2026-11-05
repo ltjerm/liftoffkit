@@ -46,6 +46,11 @@ export async function runKit(url: string, o: KitOptions) {
     });
     const start = o.startDate || new Date(Date.now() + 2 * 864e5).toISOString().slice(0, 10);
     const plan = flagUnsourcedNumbers(await llmStep("xplan", () => generatePlan(brand, copy, llm, start, s.finalUrl)), s.text + " " + JSON.stringify(brand));
+    // Screenshot names the plan may reference only exist if the page scrolled (e.g. posthog.com has none
+    // of desktop-section-*). Point any missing shots/* attachment at the hero shot instead.
+    for (const d of plan.days) for (const p of d.posts) {
+      if (p.media?.startsWith("shots/") && !s.screenshots.includes(p.media)) p.media = s.screenshots.includes("shots/desktop-hero.png") ? "shots/desktop-hero.png" : "social/og-1200x630.png";
+    }
     await w("launch/x-plan.json", JSON.stringify(plan, null, 2));
     await w("launch/x-plan.md", planToMarkdown(plan, brand));
     await w("launch/x-plan.csv", planToCsv(plan));
