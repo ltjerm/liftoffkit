@@ -16,7 +16,7 @@ const FILES = [
   ["launch/x-plan.csv", "7 days, timed"],
 ] as const;
 
-const SWATCHES = ["#ff4d1a", "#14120f", "#f3efe6", "#2f6b4f"];
+const SWATCHES = ["#1f7a4d", "#10170f", "#f2ede3", "#f2b930"];
 
 function hostOf(v: string | null) {
   if (!v) return null;
