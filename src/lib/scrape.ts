@@ -92,7 +92,8 @@ export async function scrape(rawUrl: string, outDir: string, opts: { browser?: B
     const page = await ctx.newPage();
     await guardPage(page, blocked);
     page.on("request", (r) => { if (r.resourceType() === "script") try { scriptHosts.add(new URL(r.url()).host + new URL(r.url()).pathname.slice(0, 40)); } catch {} });
-    await page.goto(start.toString(), { waitUntil: "domcontentloaded", timeout });
+    const resp = await page.goto(start.toString(), { waitUntil: "domcontentloaded", timeout });
+    const httpStatus = resp?.status() ?? 0;
     await page.waitForLoadState("networkidle", { timeout: 8000 }).catch(() => {});
     // Final URL after redirects must still be public (route guard already enforced each hop).
     await assertSafeUrl(page.url());
@@ -184,6 +185,13 @@ export async function scrape(rawUrl: string, outDir: string, opts: { browser?: B
 
     const finalUrl = page.url();
     await ctx.close();
+
+    // Refuse to build a kit from an error / bot-wall page (e.g. framer.com served headless Chromium
+    // a CloudFront 403 and we generated a whole kit about "CloudFront 403 error").
+    const BLOCK_RE = /request could not be satisfied|access denied|attention required|just a moment\.\.\.|verify you are human|403 forbidden|404 not found|page not found/i;
+    if (httpStatus >= 400 || BLOCK_RE.test(data.title || "")) {
+      throw new Error(`Site returned an error or bot-check page (HTTP ${httpStatus || "?"}, title "${(data.title || "").slice(0, 80)}"); not generating a kit from it.`);
+    }
 
     const find = (re: RegExp) => data.links.find((l) => re.test(l.text) || re.test(l.href))?.href;
     const scripts = [...scriptHosts];
