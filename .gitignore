@@ -8,3 +8,5 @@ logs/
 node_modules/
 out/
 scripts-falcheck.sh
+next-env.d.ts
+tsconfig.tsbuildinfo

@@ -8,6 +8,7 @@
     "build": "next build",
     "kit": "tsx src/cli/kit.ts",
     "test:scrape": "tsx src/cli/test-scrape.ts",
+    "test:trim": "tsx src/cli/test-trim.ts",
     "worker": "tsx src/cli/worker.ts",
     "typecheck": "tsc --noEmit"
   },
