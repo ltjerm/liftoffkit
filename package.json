@@ -8,6 +8,7 @@
     "build": "next build",
     "kit": "tsx src/cli/kit.ts",
     "test:scrape": "tsx src/cli/test-scrape.ts",
+    "test:xplan-day": "tsx src/cli/test-xplan-day.ts",
     "worker": "tsx src/cli/worker.ts",
     "typecheck": "tsc --noEmit"
   },
