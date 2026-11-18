@@ -11,11 +11,16 @@ export const PostSchema = z.object({
   media: z.string().nullish().transform((v) => v || undefined).optional(),
 });
 export const DaySchema = z.object({
-  day: z.coerce.number(), label: z.string(), goal: z.string().nullish().transform((v) => v ?? ""),
+  // Accept any `day` here. Number("Day 1"), Number("D3"), and Number(undefined) are NaN,
+  // and z.coerce.number() rejects the whole plan for that. Position is assigned below.
+  day: z.unknown().optional(), label: z.string(), goal: z.string().nullish().transform((v) => v ?? ""),
   posts: z.array(PostSchema).min(1),
   crossPost: z.array(z.string()).nullish().transform((v) => v ?? []),
 });
-export const PlanSchema = z.object({ days: z.array(DaySchema).min(7).transform((d) => d.slice(0, 7)) });
+/** The days array is the 7-day sequence. Stamp `day` 1..7 from that order so labels like "Day 1" still validate. */
+export const PlanSchema = z.object({
+  days: z.array(DaySchema).min(7).transform((days) => days.slice(0, 7).map(({ day: _day, ...rest }, i) => ({ ...rest, day: i + 1 }))),
+});
 export type XPlan = z.infer<typeof PlanSchema> & { source: "llm" | "template"; startDate: string; warnings: string[] };
 
 const X_LIMIT = 280;
@@ -85,7 +90,7 @@ export async function generatePlan(b: Brand, c: Copy, llm: LLMProvider, startDat
   if (!llm.available) return templatePlan(b, c, startDate, url);
   const out = await llm.json({
     system: "You are a launch strategist for indie makers on X (Twitter). Write in the maker's first person, casual and specific. Never invent metrics, timings, resolutions, demo results, or testimonials — every number must appear in the brand JSON; otherwise use a [TODO: ...] placeholder. Never suggest buying upvotes or asking for upvotes directly (Product Hunt forbids it). Single posts must be <=280 characters. Avoid these words: seamless, empower, revolutionize, unleash, game-changer, cutting-edge, supercharge, elevate, leverage, effortless, unlock.",
-    prompt: `Brand: ${JSON.stringify(b)}\nCopy: ${JSON.stringify({ headlines: c.headlines, ph: c.productHunt })}\nURL: ${url}\n\nReturn JSON {days:[7 items]}; each day {day (1-7), label, goal, posts:[{time "HH:MM" local, kind: post|thread|reply-bait|quote, text, media? (one of: social/og-1200x630.png, social/x-post-1600x900.png, shots/desktop-hero.png, shots/desktop-section-1.png, shots/mobile-hero.png)}], crossPost:[strings]}. Day 1-2 teaser/build-in-public, Day 3 launch day (Product Hunt), Days 4-7 feature spotlights, lessons, roadmap.`,
+    prompt: `Brand: ${JSON.stringify(b)}\nCopy: ${JSON.stringify({ headlines: c.headlines, ph: c.productHunt })}\nURL: ${url}\n\nReturn JSON {days:[7 items]}; each day {day (must be an integer 1-7), label, goal, posts:[{time "HH:MM" local, kind: post|thread|reply-bait|quote, text, media? (one of: social/og-1200x630.png, social/x-post-1600x900.png, shots/desktop-hero.png, shots/desktop-section-1.png, shots/mobile-hero.png)}], crossPost:[strings]}. Day 1-2 teaser/build-in-public, Day 3 launch day (Product Hunt), Days 4-7 feature spotlights, lessons, roadmap.`,
     schema: PlanSchema,
     maxTokens: 12000,
   });
